@@ -53,12 +53,12 @@ jobs:
 
       - name: Build and push Github Runner image
         run: |
-          az configure --defaults acr=${CLUSTER_NAME}
+          az configure --defaults acr=ampcontainersprd
           az acr build -t ghrunner:${GITHUB_SHA} ./ghrdocker
 
       - name: Create Helm chart
         run: |
-          # az configure --defaults acr=${CLUSTER_NAME}
+          # az configure --defaults acr=ampcontainersprd
           # az acr login -n ${CLUSTER_NAME}
           cd ./ghrhelm
           helm package .
